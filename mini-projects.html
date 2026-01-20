@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Build your portfolio with beginner-friendly mini projects. Complete source code and step-by-step instructions for students.">
+    <title>Mini Projects for Students - CodeFixLab</title>
+    <link rel="stylesheet" href="style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9991916363065932" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .projects-container {
+            margin: 30px 0;
+        }
+        
+        .project-category {
+            margin-bottom: 40px;
+        }
+        
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #4361ee;
+        }
+        
+        .category-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        body.dark-mode .category-tabs {
+            background-color: #2d2d2d;
+        }
+        
+        .category-tab {
+            padding: 10px 20px;
+            background-color: #f8f9fa;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        body.dark-mode .category-tab {
+            background-color: #3a3a3a;
+            color: white;
+        }
+        
+        .category-tab:hover, .category-tab.active {
+            background-color: #4361ee;
+            color: white;
+        }
+        
+        .projects-list {
+            display: none;
+        }
+        
+        .projects-list.active {
+            display: block;
+        }
+        
+        .project-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        body.dark-mode .project-item {
+            background-color: #2d2d2d;
+        }
+        
+        .project-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .project-title {
+            font-size: 1.3rem;
+            color: #4361ee;
+            margin-bottom: 5px;
+        }
+        
+        body.dark-mode .project-title {
+            color: #4cc9f0;
+        }
+        
+        .project-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+        
+        .project-description {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .project-features {
+            margin-bottom: 20px;
+        }
+        
+        .project-features h4 {
+            margin-bottom: 10px;
+            color: #495057;
+        }
+        
+        body.dark-mode .project-features h4 {
+            color: #b0b0b0;
+        }
+        
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 8px;
+            padding-left: 20px;
+        }
+        
+        .features-list li {
+            margin-bottom: 5px;
+        }
+        
+        .project-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .action-btn {
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: #4361ee;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #3a0ca3;
+            color: white;
+        }
+        
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            color: white;
+        }
+        
+        .btn-success {
+            background-color: #28a745;
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background-color: #218838;
+            color: white;
+        }
+        
+        .project-difficulty {
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .difficulty-easy {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .difficulty-medium {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        .difficulty-hard {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="https://via.placeholder.com/40/4361ee/ffffff?text=CFL" alt="CodeFixLab Logo" class="logo-img">
+                <h1>Code<span>Fix</span>Lab</h1>
+            </a>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="html-error-fix.html"><i class="fab fa-html5"></i> HTML Errors</a></li>
+                <li><a href="css-error-fix.html"><i class="fab fa-css3-alt"></i> CSS Errors</a></li>
+                <li><a href="javascript-error-fix.html"><i class="fab fa-js-square"></i> JavaScript Errors</a></li>
+                <li><a href="free-source-code.html"><i class="fas fa-code"></i> Source Code</a></li>
+                <li><a href="mini-projects.html"><i class="fas fa-laptop-code"></i> Mini Projects</a></li>
+                <li><a href="ai-code-helper.html"><i class="fas fa-robot"></i> AI Helper</a></li>
+                <li><a href="code-tester.html"><i class="fas fa-vial"></i> Code Tester</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="ad-unit ad-horizontal">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-9991916363065932"
+                data-ad-slot="1234567890"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="error-header">
+            <h1>Mini Projects for Students</h1>
+            <p>Build your portfolio with these beginner-friendly projects. Each project includes complete source code and step-by-step instructions.</p>
+        </div>
+        
+        <div class="ad-unit ad-horizontal">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-9991916363065932"
+                data-ad-slot="2345678901"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+        
+        <div class="category-tabs">
+            <button class="category-tab active" data-category="all">All Projects</button>
+            <button class="category-tab" data-category="beginner">Beginner</button>
+            <button class="category-tab" data-category="intermediate">Intermediate</button>
+            <button class="category-tab" data-category="advanced">Advanced</button>
+            <button class="category-tab" data-category="html">HTML/CSS</button>
+            <button class="category-tab" data-category="javascript">JavaScript</button>
+            <button class="category-tab" data-category="webapp">Web Apps</button>
+            <button class="category-tab" data-category="game">Games</button>
+        </div>
+        
+        <div class="projects-container">
+            <div id="projectsList">
+                <!-- Projects will be loaded by JavaScript -->
+            </div>
+        </div>
+        
+        <div class="ad-unit ad-horizontal">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-9991916363065932"
+                data-ad-slot="3456789012"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+        
+        <div class="error-content" style="margin-top: 30px;">
+            <h2>Learning Path for Students</h2>
+            <div class="step-by-step-fix">
+                <ol>
+                    <li><strong>Start with Beginner Projects:</strong> Build confidence with simple HTML/CSS projects</li>
+                    <li><strong>Learn JavaScript Basics:</strong> Add interactivity to your projects with JavaScript</li>
+                    <li><strong>Try Intermediate Projects:</strong> Build complete web applications with multiple features</li>
+                    <li><strong>Explore APIs:</strong> Learn to fetch data from external sources</li>
+                    <li><strong>Build Advanced Projects:</strong> Create complex applications with multiple components</li>
+                    <li><strong>Create Portfolio:</strong> Showcase your best projects to potential employers</li>
+                </ol>
+            </div>
+            
+            <h3>Project Structure</h3>
+            <div class="code-block">
+                <div class="code-header">
+                    <span>Typical Project Structure</span>
+                </div>
+<pre><code>project-folder/
+├── index.html          # Main HTML file
+├── style.css           # Stylesheet
+├── script.js           # JavaScript file
+├── assets/             # Images, fonts, etc.
+│   ├── images/
+│   └── icons/
+├── README.md           # Project documentation
+└── instructions.txt    # Step-by-step guide
+
+Each project includes:
+✓ Complete source code with comments
+✓ Step-by-step instructions
+✓ Screenshots of expected output
+✓ Tips and best practices
+✓ Common errors and solutions</code></pre>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CodeFixLab</h3>
+                    <p>Your go-to resource for fixing coding errors, learning web development, and building projects. We help students and developers succeed.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="html-error-fix.html">HTML Error Fix</a></li>
+                        <li><a href="css-error-fix.html">CSS Error Fix</a></li>
+                        <li><a href="javascript-error-fix.html">JavaScript Error Fix</a></li>
+                        <li><a href="free-source-code.html">Free Source Code</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="mini-projects.html">Mini Projects</a></li>
+                        <li><a href="ai-code-helper.html">AI Code Helper</a></li>
+                        <li><a href="code-tester.html">Code Tester</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 CodeFixLab. All rights reserved. Designed for educational purposes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Mini projects data
+        const miniProjects = [
+            {
+                id: 1,
+                title: "Personal Portfolio Website",
+                description: "Create your own portfolio website to showcase your projects and skills. This project teaches HTML structure, CSS styling, and responsive design.",
+                difficulty: "easy",
+                category: ["beginner", "html"],
+                time: "2-3 hours",
+                skills: ["HTML", "CSS", "Responsive Design"],
+                features: ["Responsive layout", "Project gallery", "Contact form", "About section"],
+                resources: ["Source code", "Step-by-step guide", "Design mockups"]
+            },
+            {
+                id: 2,
+                title: "To-Do List Application",
+                description: "Build a functional to-do list app with add, edit, delete, and mark-complete features. Learn DOM manipulation and local storage.",
+                difficulty: "medium",
+                category: ["intermediate", "javascript"],
+                time: "4-5 hours",
+                skills: ["JavaScript", "DOM Manipulation", "Local Storage"],
+                features: ["Add/delete tasks", "Edit tasks", "Mark as complete", "Filter tasks", "Local storage"],
+                resources: ["Complete code", "Video tutorial", "Debugging tips"]
+            },
+            {
+                id: 3,
+                title: "Weather App",
+                description: "Create a weather application that fetches data from a weather API and displays it in a beautiful interface.",
+                difficulty: "medium",
+                category: ["intermediate", "javascript", "webapp"],
+                time: "5-6 hours",
+                skills: ["API Integration", "Async JavaScript", "CSS Grid"],
+                features: ["Current weather", "5-day forecast", "Location search", "Temperature units", "Responsive design"],
+                resources: ["API documentation", "Error handling guide", "UI templates"]
+            },
+            {
+                id: 4,
+                title: "Calculator",
+                description: "Build a fully functional calculator with basic arithmetic operations and a clean interface.",
+                difficulty: "easy",
+                category: ["beginner", "javascript"],
+                time: "3-4 hours",
+                skills: ["JavaScript Functions", "Event Handling", "CSS Flexbox"],
+                features: ["Basic operations", "Clear function", "Error handling", "Responsive design"],
+                resources: ["Algorithm explanation", "Testing guide", "Accessibility tips"]
+            },
+            {
+                id: 5,
+                title: "Quiz Game",
+                description: "Create an interactive quiz game with multiple categories, scoring system, and timer.",
+                difficulty: "medium",
+                category: ["intermediate", "javascript", "game"],
+                time: "6-7 hours",
+                skills: ["JavaScript Objects", "Timer Functions", "Score Tracking"],
+                features: ["Multiple categories", "Timer", "Score tracking", "Result display", "Play again"],
+                resources: ["Question database", "Scoring logic", "UI animations"]
+            },
+            {
+                id: 6,
+                title: "Recipe Finder",
+                description: "Build a recipe search application that fetches recipes from an API with filtering and sorting options.",
+                difficulty: "hard",
+                category: ["advanced", "javascript", "webapp"],
+                time: "8-10 hours",
+                skills: ["API Integration", "Search Algorithms", "Complex UI"],
+                features: ["Search recipes", "Filter by cuisine", "Sort by rating", "Save favorites", "Print recipe"],
+                resources: ["API setup guide", "Advanced CSS", "Performance optimization"]
+            },
+            {
+                id: 7,
+                title: "E-commerce Product Page",
+                description: "Create a product page for an e-commerce website with image gallery, product details, and add-to-cart functionality.",
+                difficulty: "medium",
+                category: ["intermediate", "html", "javascript"],
+                time: "5-6 hours",
+                skills: ["CSS Grid", "Image Gallery", "Form Validation"],
+                features: ["Product gallery", "Quantity selector", "Add to cart", "Product details", "Responsive layout"],
+                resources: ["UI/UX guidelines", "Form validation", "Cart logic"]
+            },
+            {
+                id: 8,
+                title: "Chat Interface",
+                description: "Build a chat application interface with message sending, emoji support, and user authentication UI.",
+                difficulty: "hard",
+                category: ["advanced", "javascript", "webapp"],
+                time: "10-12 hours",
+                skills: ["Real-time Updates", "Authentication", "Complex State"],
+                features: ["User authentication", "Send messages", "Emoji support", "Online status", "Message history"],
+                resources: ["Socket.io basics", "Security practices", "Database design"]
+            },
+            {
+                id: 9,
+                title: "Expense Tracker",
+                description: "Create an expense tracking application to manage income and expenses with charts and reports.",
+                difficulty: "medium",
+                category: ["intermediate", "javascript", "webapp"],
+                time: "6-7 hours",
+                skills: ["Chart Integration", "Data Management", "Form Validation"],
+                features: ["Add expenses", "Categories", "Monthly reports", "Charts", "Export data"],
+                resources: ["Chart.js tutorial", "Data validation", "Export functionality"]
+            },
+            {
+                id: 10,
+                title: "Memory Game",
+                description: "Build a memory matching card game with timer, score tracking, and multiple difficulty levels.",
+                difficulty: "medium",
+                category: ["intermediate", "javascript", "game"],
+                time: "5-6 hours",
+                features: ["Multiple levels", "Timer", "Score tracking", "Card animations", "Win condition"],
+                resources: ["Game logic", "CSS animations", "Difficulty algorithms"]
+            }
+        ];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectsList = document.getElementById('projectsList');
+            const categoryTabs = document.querySelectorAll('.category-tab');
+            let activeCategory = 'all';
+
+            // Render projects
+            function renderProjects(category = 'all') {
+                projectsList.innerHTML = '';
+                
+                const filteredProjects = category === 'all' 
+                    ? miniProjects 
+                    : miniProjects.filter(project => project.category.includes(category));
+                
+                if (filteredProjects.length === 0) {
+                    projectsList.innerHTML = `
+                        <div class="error-content" style="text-align: center; padding: 40px;">
+                            <i class="fas fa-search" style="font-size: 3rem; color: #6c757d; margin-bottom: 20px;"></i>
+                            <h3>No projects found</h3>
+                            <p>Try selecting a different category or check back soon for new projects.</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                filteredProjects.forEach(project => {
+                    const projectItem = document.createElement('div');
+                    projectItem.className = 'project-item';
+                    projectItem.innerHTML = `
+                        <div class="project-header">
+                            <div>
+                                <h3 class="project-title">${project.title}</h3>
+                                <div class="project-meta">
+                                    <span><i class="fas fa-clock"></i> ${project.time}</span>
+                                    <span><i class="fas fa-layer-group"></i> ${project.skills ? project.skills.join(', ') : 'HTML, CSS, JS'}</span>
+                                    <span class="project-difficulty difficulty-${project.difficulty}">
+                                        ${project.difficulty.charAt(0).toUpperCase() + project.difficulty.slice(1)}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="project-description">
+                            <p>${project.description}</p>
+                        </div>
+                        
+                        <div class="project-features">
+                            <h4>Features:</h4>
+                            <ul class="features-list">
+                                ${project.features.map(feature => `<li>${feature}</li>`).join('')}
+                            </ul>
+                        </div>
+                        
+                        <div class="project-actions">
+                            <a href="#" class="action-btn btn-primary" data-id="${project.id}">
+                                <i class="fas fa-download"></i> Download Project
+                            </a>
+                            <a href="#" class="action-btn btn-secondary" data-id="${project.id}">
+                                <i class="fas fa-book"></i> View Tutorial
+                            </a>
+                            <a href="code-tester.html" class="action-btn btn-success" data-id="${project.id}">
+                                <i class="fas fa-code"></i> Try in Code Tester
+                            </a>
+                        </div>
+                    `;
+                    
+                    projectsList.appendChild(projectItem);
+                });
+                
+                // Add event listeners to buttons
+                document.querySelectorAll('.action-btn').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const projectId = this.getAttribute('data-id');
+                        const action = this.textContent.includes('Download') ? 'download' : 
+                                      this.textContent.includes('Tutorial') ? 'tutorial' : 'tester';
+                        
+                        handleProjectAction(projectId, action);
+                    });
+                });
+            }
+            
+            // Handle project actions
+            function handleProjectAction(projectId, action) {
+                const project = miniProjects.find(p => p.id == projectId);
+                if (!project) return;
+                
+                switch(action) {
+                    case 'download':
+                        alert(`Downloading "${project.title}" project...\n\nThis would include:\n- Complete source code\n- Step-by-step instructions\n- Required assets\n- README file\n\nPerfect for learning and building your portfolio!`);
+                        break;
+                    case 'tutorial':
+                        alert(`Opening tutorial for "${project.title}"...\n\nThis would show:\n1. Project overview\n2. Step-by-step instructions\n3. Code explanations\n4. Common mistakes\n5. Solution videos\n\nLearn how to build this project from scratch!`);
+                        break;
+                    case 'tester':
+                        // Already handled by link
+                        break;
+                }
+            }
+            
+            // Category tabs event listeners
+            categoryTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Update active tab
+                    categoryTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter projects
+                    activeCategory = this.getAttribute('data-category');
+                    renderProjects(activeCategory);
+                });
+            });
+            
+            // Initial render
+            renderProjects();
+            
+            // Initialize AdSense
+            if (window.adsbygoogle) {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fix JavaScript errors like undefined variables, type errors, and async issues with detailed explanations and working code examples.">
+    <title>JavaScript Error Fix - CodeFixLab</title>
+    <link rel="stylesheet" href="style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9991916363065932" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="https://via.placeholder.com/40/4361ee/ffffff?text=CFL" alt="CodeFixLab Logo" class="logo-img">
+                <h1>Code<span>Fix</span>Lab</h1>
+            </a>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="html-error-fix.html"><i class="fab fa-html5"></i> HTML Errors</a></li>
+                <li><a href="css-error-fix.html"><i class="fab fa-css3-alt"></i> CSS Errors</a></li>
+                <li><a href="javascript-error-fix.html"><i class="fab fa-js-square"></i> JavaScript Errors</a></li>
+                <li><a href="free-source-code.html"><i class="fas fa-code"></i> Source Code</a></li>
+                <li><a href="mini-projects.html"><i class="fas fa-laptop-code"></i> Mini Projects</a></li>
+                <li><a href="ai-code-helper.html"><i class="fas fa-robot"></i> AI Helper</a></li>
+                <li><a href="code-tester.html"><i class="fas fa-vial"></i> Code Tester</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="ad-unit ad-horizontal">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-9991916363065932"
+                data-ad-slot="1234567890"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="error-content">
+            <div class="error-header">
+                <h1>JavaScript Error: Uncaught ReferenceError: variable is not defined</h1>
+                <p><i class="fas fa-calendar-alt"></i> Last updated: November 2023 | <i class="fas fa-tag"></i> Difficulty: Beginner</p>
+            </div>
+            
+            <div class="ad-unit ad-horizontal">
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-9991916363065932"
+                    data-ad-slot="2345678901"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+            
+            <div class="error-explanation">
+                <h2>Error Explanation</h2>
+                <p>The "Uncaught ReferenceError: variable is not defined" error occurs when you try to use a variable that hasn't been declared in the current scope. This is one of the most common JavaScript errors, especially for beginners. The error message typically appears in the browser console and stops the execution of your JavaScript code.</p>
+                
+                <p>This error can happen for several reasons: trying to use a variable before it's declared, misspelling a variable name, using a variable outside its scope, or forgetting to import a module that contains the variable. JavaScript has different scoping rules for variables declared with `var`, `let`, and `const`, which can also contribute to this error.</p>
+                
+                <p>Understanding variable scope and hoisting in JavaScript is crucial to avoiding this error. Variables declared with `var` are hoisted to the top of their scope but initialized as `undefined`, while variables declared with `let` and `const` are hoisted but not initialized, causing a "temporal dead zone" where they cannot be accessed before declaration.</p>
+            </div>
+            
+            <div class="causes">
+                <h3>Common Causes</h3>
+                <ul>
+                    <li>Misspelling variable names (case-sensitive)</li>
+                    <li>Using variable before declaration (temporal dead zone for let/const)</li>
+                    <li>Variable declared in a different scope (function/local vs global)</li>
+                    <li>Forgetting to import modules or external scripts</li>
+                    <li>Typos in property access (obj.proprty instead of obj.property)</li>
+                </ul>
+            </div>
+            
+            <div class="step-by-step-fix">
+                <h3>Step-by-Step Fix</h3>
+                <ol>
+                    <li><strong>Check the console:</strong> Note the exact error message and line number.</li>
+                    <li><strong>Verify variable name:</strong> Ensure correct spelling (JavaScript is case-sensitive).</li>
+                    <li><strong>Check variable scope:</strong> Make sure variable is accessible where you're trying to use it.</li>
+                    <li><strong>Verify declaration:</strong> Ensure variable is declared before use (for let/const).</li>
+                    <li><strong>Use typeof check:</strong> Add `if (typeof variable !== 'undefined')` before using.</li>
+                    <li><strong>Consider optional chaining:</strong> Use `obj?.property` for nested properties.</li>
+                </ol>
+            </div>
+            
+            <div class="ad-unit ad-horizontal">
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-9991916363065932"
+                    data-ad-slot="3456789012"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+            
+            <div class="code-examples">
+                <h3>Code Examples</h3>
+                <p><strong>Error Code (undefined variable):</strong></p>
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>JavaScript - Incorrect</span>
+                        <button class="copy-btn">Copy Code</button>
+                    </div>
+<pre><code>// Trying to use variable before declaration
+console.log(myVariable); // Error: myVariable is not defined
+
+// Misspelled variable name
+const userName = "John";
+console.log(Username); // Error: Username is not defined
+
+// Variable out of scope
+function test() {
+    const localVar = "Hello";
+}
+console.log(localVar); // Error: localVar is not defined</code></pre>
+                </div>
+                
+                <p><strong>Corrected Code:</strong></p>
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>JavaScript - Correct</span>
+                        <button class="copy-btn">Copy Code</button>
+                    </div>
+<pre><code>// Declare variable before use
+const myVariable = "Hello World";
+console.log(myVariable); // Works: "Hello World"
+
+// Use correct spelling (case-sensitive)
+const userName = "John";
+console.log(userName); // Works: "John"
+
+// Return value from function or use global scope
+function test() {
+    const localVar = "Hello";
+    return localVar;
+}
+const result = test();
+console.log(result); // Works: "Hello"
+
+// Optional chaining for nested properties
+const user = { profile: { name: "Alice" } };
+console.log(user?.profile?.name); // Works: "Alice"
+console.log(user?.profile?.age ?? "Age not set"); // Works with default</code></pre>
+                </div>
+            </div>
+            
+            <div class="faq-section">
+                <h3>FAQ</h3>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What's the difference between undefined and not defined?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p><code>undefined</code> means a variable has been declared but hasn't been assigned a value. "Not defined" means the variable has never been declared in the current scope. Example: <code>let x; console.log(x); // undefined</code> vs <code>console.log(y); // ReferenceError: y is not defined</code>.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How does hoisting affect this error?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Variables declared with <code>var</code> are hoisted and initialized as <code>undefined</code>, so accessing them before declaration gives <code>undefined</code>, not a ReferenceError. Variables with <code>let</code> and <code>const</code> are hoisted but not initialized, causing a "temporal dead zone" where accessing them before declaration throws a ReferenceError.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What are best practices to avoid undefined errors?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>1. Always declare variables before use. 2. Use <code>const</code> by default, <code>let</code> when reassigning. 3. Initialize variables when declaring. 4. Use optional chaining (<code>?.</code>) for nested properties. 5. Use default values (<code>??</code> or <code>||</code>). 6. Enable strict mode (<code>"use strict"</code>). 7. Use linters like ESLint.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="ad-unit ad-vertical" style="float: right; margin-left: 20px;">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-9991916363065932"
+                data-ad-slot="5678901234"
+                data-ad-format="vertical"
+                data-full-width-responsive="false"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CodeFixLab</h3>
+                    <p>Your go-to resource for fixing coding errors, learning web development, and building projects. We help students and developers succeed.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="html-error-fix.html">HTML Error Fix</a></li>
+                        <li><a href="css-error-fix.html">CSS Error Fix</a></li>
+                        <li><a href="javascript-error-fix.html">JavaScript Error Fix</a></li>
+                        <li><a href="free-source-code.html">Free Source Code</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="mini-projects.html">Mini Projects</a></li>
+                        <li><a href="ai-code-helper.html">AI Code Helper</a></li>
+                        <li><a href="code-tester.html">Code Tester</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 CodeFixLab. All rights reserved. Designed for educational purposes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

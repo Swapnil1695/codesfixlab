@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fix common CSS errors like flexbox issues, z-index problems, and specificity conflicts with detailed explanations and working code examples.">
+    <title>CSS Error Fix - CodeFixLab</title>
+    <link rel="stylesheet" href="style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9991916363065932" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="https://via.placeholder.com/40/4361ee/ffffff?text=CFL" alt="CodeFixLab Logo" class="logo-img">
+                <h1>Code<span>Fix</span>Lab</h1>
+            </a>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="html-error-fix.html"><i class="fab fa-html5"></i> HTML Errors</a></li>
+                <li><a href="css-error-fix.html"><i class="fab fa-css3-alt"></i> CSS Errors</a></li>
+                <li><a href="javascript-error-fix.html"><i class="fab fa-js-square"></i> JavaScript Errors</a></li>
+                <li><a href="free-source-code.html"><i class="fas fa-code"></i> Source Code</a></li>
+                <li><a href="mini-projects.html"><i class="fas fa-laptop-code"></i> Mini Projects</a></li>
+                <li><a href="ai-code-helper.html"><i class="fas fa-robot"></i> AI Helper</a></li>
+                <li><a href="code-tester.html"><i class="fas fa-vial"></i> Code Tester</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="ad-unit ad-horizontal">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-9991916363065932"
+                data-ad-slot="1234567890"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="error-content">
+            <div class="error-header">
+                <h1>CSS Error: Flexbox Not Centering Vertically</h1>
+                <p><i class="fas fa-calendar-alt"></i> Last updated: November 2023 | <i class="fas fa-tag"></i> Difficulty: Beginner</p>
+            </div>
+            
+            <div class="ad-unit ad-horizontal">
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-9991916363065932"
+                    data-ad-slot="2345678901"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+            
+            <div class="error-explanation">
+                <h2>Error Explanation</h2>
+                <p>Flexbox centering issues are among the most common CSS problems developers face. When using `display: flex` to center elements, you need to apply the correct properties to the parent container. The most common mistake is applying centering properties to the child elements instead of the parent container, or forgetting to set the container height.</p>
+                
+                <p>For vertical centering to work properly, the parent container must have a defined height. Without a height, the container collapses to the height of its content, making vertical centering appear to not work. This is especially important when trying to center elements in the viewport or within a specific section.</p>
+                
+                <p>Another common issue is using incorrect property values. For example, using `align-items: center` instead of `justify-content: center` for horizontal centering, or vice versa. Understanding the difference between the main axis and cross axis in flexbox is crucial for proper centering.</p>
+            </div>
+            
+            <div class="causes">
+                <h3>Common Causes</h3>
+                <ul>
+                    <li>Applying centering properties to child elements instead of parent</li>
+                    <li>Missing container height (collapsed to 0 or auto)</li>
+                    <li>Confusing justify-content and align-items properties</li>
+                    <li>Using incorrect flex-direction for the desired centering</li>
+                    <li>Multiple conflicting CSS rules overriding each other</li>
+                </ul>
+            </div>
+            
+            <div class="step-by-step-fix">
+                <h3>Step-by-Step Fix</h3>
+                <ol>
+                    <li><strong>Check the parent container:</strong> Ensure the element you want to center is inside a container with `display: flex`.</li>
+                    <li><strong>Set container dimensions:</strong> Give the container a defined height (e.g., `height: 100vh` for full viewport).</li>
+                    <li><strong>Apply correct properties:</strong> Use `justify-content: center` for main axis (horizontal by default) and `align-items: center` for cross axis (vertical by default).</li>
+                    <li><strong>Check flex-direction:</strong> If using `flex-direction: column`, the axes swap - justify-content becomes vertical, align-items becomes horizontal.</li>
+                    <li><strong>Inspect with DevTools:</strong> Use browser DevTools to check computed styles and identify conflicting rules.</li>
+                    <li><strong>Test responsiveness:</strong> Ensure centering works at different screen sizes.</li>
+                </ol>
+            </div>
+            
+            <div class="ad-unit ad-horizontal">
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-9991916363065932"
+                    data-ad-slot="3456789012"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+            
+            <div class="code-examples">
+                <h3>Code Examples</h3>
+                <p><strong>Error Code (not centering):</strong></p>
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>CSS - Incorrect</span>
+                        <button class="copy-btn">Copy Code</button>
+                    </div>
+                    <pre><code>/* Container has no height */
+.container {
+    display: flex;
+}
+
+/* Centering applied to wrong element */
+.child {
+    justify-content: center;
+    align-items: center;
+}</code></pre>
+                </div>
+                
+                <p><strong>Corrected Code:</strong></p>
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>CSS - Correct</span>
+                        <button class="copy-btn">Copy Code</button>
+                    </div>
+<pre><code>/* Container with defined height and centering */
+.container {
+    display: flex;
+    justify-content: center;  /* Horizontal centering */
+    align-items: center;      /* Vertical centering */
+    height: 100vh;            /* Essential for vertical centering */
+}
+
+/* Child doesn't need centering properties */
+.child {
+    /* No centering properties needed here */
+}</code></pre>
+                </div>
+            </div>
+            
+            <div class="faq-section">
+                <h3>FAQ</h3>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What's the difference between justify-content and align-items?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p><code>justify-content</code> aligns items along the main axis (horizontal by default), while <code>align-items</code> aligns items along the cross axis (vertical by default). If you change <code>flex-direction: column</code>, the axes swap.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Why does my flex container need a height?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Vertical centering requires space to center within. Without a defined height, the container collapses to the height of its content, leaving no extra space to center within. Common solutions: <code>height: 100vh</code> (full viewport), <code>min-height: 100vh</code>, or a fixed pixel height.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I center both horizontally and vertically with one property?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Use <code>place-items: center</code> (shorthand for <code>align-items</code> and <code>justify-items</code>) in CSS Grid, or <code>place-content: center</code> in Flexbox (shorthand for <code>justify-content</code> and <code>align-content</code>).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="ad-unit ad-vertical" style="float: right; margin-left: 20px;">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-9991916363065932"
+                data-ad-slot="5678901234"
+                data-ad-format="vertical"
+                data-full-width-responsive="false"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CodeFixLab</h3>
+                    <p>Your go-to resource for fixing coding errors, learning web development, and building projects. We help students and developers succeed.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="html-error-fix.html">HTML Error Fix</a></li>
+                        <li><a href="css-error-fix.html">CSS Error Fix</a></li>
+                        <li><a href="javascript-error-fix.html">JavaScript Error Fix</a></li>
+                        <li><a href="free-source-code.html">Free Source Code</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="mini-projects.html">Mini Projects</a></li>
+                        <li><a href="ai-code-helper.html">AI Code Helper</a></li>
+                        <li><a href="code-tester.html">Code Tester</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 CodeFixLab. All rights reserved. Designed for educational purposes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get instant coding help with our AI assistant. Ask coding questions, debug errors, and generate code snippets in real-time.">
+    <title>AI Code Helper - CodeFixLab</title>
+    <link rel="stylesheet" href="style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9991916363065932" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .ai-sidebar {
+            background-color: #2d2d2d;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .ai-sidebar-section {
+            margin-bottom: 30px;
+        }
+        
+        .ai-sidebar-section h3 {
+            color: #4cc9f0;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #444;
+            padding-bottom: 8px;
+        }
+        
+        .sidebar-search {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .sidebar-search input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #444;
+            background-color: #1a1a1a;
+            color: white;
+            border-radius: 4px 0 0 4px;
+        }
+        
+        .sidebar-search button {
+            background-color: #4361ee;
+            color: white;
+            border: none;
+            padding: 0 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+        
+        .previous-chats {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .previous-chat-item {
+            padding: 8px 10px;
+            background-color: #3a3a3a;
+            margin-bottom: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        .previous-chat-item:hover {
+            background-color: #4a4a4a;
+        }
+        
+        .category-buttons {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+        
+        .category-btn {
+            padding: 10px;
+            background-color: #3a3a3a;
+            border: none;
+            color: white;
+            text-align: left;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .category-btn:hover {
+            background-color: #4a4a4a;
+        }
+        
+        .category-btn.active {
+            background-color: #4361ee;
+        }
+        
+        .new-chat-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #7209b7;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .new-chat-btn:hover {
+            background-color: #5a08a8;
+        }
+        
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 70vh;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .message {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+        
+        .user-message {
+            align-self: flex-end;
+            background-color: #4361ee;
+            color: white;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .ai-message {
+            align-self: flex-start;
+            background-color: #f0f0f0;
+            color: #212529;
+            border-bottom-left-radius: 5px;
+        }
+        
+        body.dark-mode .ai-message {
+            background-color: #3a3a3a;
+            color: white;
+        }
+        
+        .code-output {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            font-size: 0.9rem;
+            border-left: 3px solid #4361ee;
+        }
+        
+        .chat-input-container {
+            padding: 20px;
+            border-top: 1px solid #ddd;
+        }
+        
+        body.dark-mode .chat-input-container {
+            border-top-color: #444;
+        }
+        
+        .chat-input-wrapper {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .chat-input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            resize: vertical;
+            min-height: 50px;
+            max-height: 150px;
+            font-family: inherit;
+        }
+        
+        body.dark-mode .chat-input {
+            background-color: #2d2d2d;
+            border-color: #444;
+            color: white;
+        }
+        
+        .chat-input:focus {
+            border-color: #4361ee;
+        }
+        
+        .send-btn {
+            background-color: #4361ee;
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .send-btn:hover {
+            background-color: #3a0ca3;
+        }
+        
+        @media (max-width: 768px) {
+            .ai-container {
+                flex-direction: column;
+            }
+            
+            .ai-sidebar {
+                width: 100%;
+                height: auto;
+            }
+            
+            .chat-container {
+                height: 60vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="https://via.placeholder.com/40/4361ee/ffffff?text=CFL" alt="CodeFixLab Logo" class="logo-img">
+                <h1>Code<span>Fix</span>Lab</h1>
+            </a>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="html-error-fix.html"><i class="fab fa-html5"></i> HTML Errors</a></li>
+                <li><a href="css-error-fix.html"><i class="fab fa-css3-alt"></i> CSS Errors</a></li>
+                <li><a href="javascript-error-fix.html"><i class="fab fa-js-square"></i> JavaScript Errors</a></li>
+                <li><a href="free-source-code.html"><i class="fas fa-code"></i> Source Code</a></li>
+                <li><a href="mini-projects.html"><i class="fas fa-laptop-code"></i> Mini Projects</a></li>
+                <li><a href="ai-code-helper.html"><i class="fas fa-robot"></i> AI Helper</a></li>
+                <li><a href="code-tester.html"><i class="fas fa-vial"></i> Code Tester</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="ad-unit ad-horizontal">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-9991916363065932"
+                data-ad-slot="1234567890"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="error-header">
+            <h1>AI Code Assistant</h1>
+            <p>Get instant help with HTML, CSS, JavaScript, and programming concepts. Ask questions, debug code, or generate code snippets.</p>
+        </div>
+        
+        <div class="ad-unit ad-horizontal">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-9991916363065932"
+                data-ad-slot="2345678901"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+        
+        <div class="ai-container" style="display: flex; height: 70vh; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            <!-- Sidebar -->
+            <div class="ai-sidebar" style="width: 250px;">
+                <div class="sidebar-search">
+                    <input type="text" id="sidebarSearch" placeholder="Search previous chats">
+                    <button id="sidebarSearchBtn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <button class="new-chat-btn" id="newChatBtn">
+                    <i class="fas fa-plus"></i> New Chat
+                </button>
+                
+                <div class="ai-sidebar-section">
+                    <h3>Previous Chats</h3>
+                    <div class="previous-chats" id="previousChats">
+                        <div class="previous-chat-item">How to center a div?</div>
+                        <div class="previous-chat-item">JavaScript array methods</div>
+                        <div class="previous-chat-item">CSS flexbox tutorial</div>
+                        <div class="previous-chat-item">Fix undefined error</div>
+                        <div class="previous-chat-item">HTML semantic elements</div>
+                    </div>
+                </div>
+                
+                <div class="ai-sidebar-section">
+                    <h3>Categories</h3>
+                    <div class="category-buttons">
+                        <button class="category-btn active" data-category="general">
+                            <i class="fas fa-code"></i> General
+                        </button>
+                        <button class="category-btn" data-category="html">
+                            <i class="fab fa-html5"></i> HTML
+                        </button>
+                        <button class="category-btn" data-category="css">
+                            <i class="fab fa-css3-alt"></i> CSS
+                        </button>
+                        <button class="category-btn" data-category="javascript">
+                            <i class="fab fa-js-square"></i> JavaScript
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="ai-sidebar-section">
+                    <h3>Tips</h3>
+                    <p style="font-size: 0.9rem; color: #b0b0b0; line-height: 1.4;">
+                        • Be specific with your questions<br>
+                        • Include error messages<br>
+                        • Share relevant code snippets<br>
+                        • Ask for examples<br>
+                        • Try different categories
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Chat Area -->
+            <div class="chat-container" style="flex: 1; background-color: white;">
+                <div class="chat-messages" id="chatMessages">
+                    <!-- Messages will be added here by JavaScript -->
+                </div>
+                
+                <div class="chat-input-container">
+                    <div class="chat-input-wrapper">
+                        <textarea class="chat-input" id="chatInput" placeholder="Ask me anything about coding... (Press Shift+Enter for new line, Enter to send)"></textarea>
+                        <button class="send-btn" id="sendBtn">
+                            <i class="fas fa-paper-plane"></i> Send
+                        </button>
+                    </div>
+                    <p style="font-size: 0.8rem; color: #666; margin-top: 10px;">
+                        <i class="fas fa-info-circle"></i> Note: This is a demo AI that provides predefined helpful responses.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="ad-unit ad-horizontal" style="margin-top: 30px;">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-9991916363065932"
+                data-ad-slot="3456789012"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+        
+        <div class="error-content" style="margin-top: 30px;">
+            <h2>How to Use the AI Code Assistant</h2>
+            <div class="step-by-step-fix">
+                <ol>
+                    <li><strong>Select a category:</strong> Choose HTML, CSS, JavaScript, or General programming from the sidebar</li>
+                    <li><strong>Ask your question:</strong> Type your coding question in the input box</li>
+                    <li><strong>Get instant help:</strong> The AI will provide explanations, code examples, and debugging tips</li>
+                    <li><strong>Copy code:</strong> Use the code blocks provided in responses for your projects</li>
+                    <li><strong>Start new chat:</strong> Click "New Chat" to clear conversation and start fresh</li>
+                </ol>
+            </div>
+            
+            <h3>Example Questions to Ask</h3>
+            <div class="code-block">
+                <div class="code-header">
+                    <span>Example Questions</span>
+                </div>
+<pre><code>• How do I center a div vertically and horizontally?
+• What's the difference between let and const in JavaScript?
+• How to create a responsive navigation bar?
+• Fix: "Cannot read property of undefined" error
+• Show me an example of CSS grid layout
+• How to validate email with JavaScript regex?
+• Explain JavaScript closures with example
+• Create a simple calculator in HTML/CSS/JS</code></pre>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CodeFixLab</h3>
+                    <p>Your go-to resource for fixing coding errors, learning web development, and building projects. We help students and developers succeed.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="html-error-fix.html">HTML Error Fix</a></li>
+                        <li><a href="css-error-fix.html">CSS Error Fix</a></li>
+                        <li><a href="javascript-error-fix.html">JavaScript Error Fix</a></li>
+                        <li><a href="free-source-code.html">Free Source Code</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="mini-projects.html">Mini Projects</a></li>
+                        <li><a href="ai-code-helper.html">AI Code Helper</a></li>
+                        <li><a href="code-tester.html">Code Tester</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 CodeFixLab. All rights reserved. Designed for educational purposes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="ai-helper.js"></script>
+</body>
+</html>

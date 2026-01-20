@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fix CSS errors: flexbox, grid, responsive design, positioning issues with working solutions.">
+    <title>CSS Error Fixes - Common CSS Problems and Solutions | CodeFixLab</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9991916363065932" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-code"></i> CodeFixLab</h1>
+                <p class="tagline">Fix Coding Errors | Free Source Code | Mini Projects</p>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="/html-errors.html"><i class="fab fa-html5"></i> HTML Fix</a></li>
+                    <li><a href="/css-errors.html" class="active"><i class="fab fa-css3-alt"></i> CSS Fix</a></li>
+                    <li><a href="/js-errors.html"><i class="fab fa-js"></i> JavaScript Fix</a></li>
+                    <li><a href="/mini-projects.html"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="ad-container header-ad">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-9991916363065932"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <div class="container main-container">
+        <aside class="sidebar">
+            <div class="ad-container sidebar-ad">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-9991916363065932"
+                     data-ad-slot="2345678901"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+            <div class="quick-links">
+                <h3><i class="fas fa-list"></i> CSS Topics</h3>
+                <ul>
+                    <li><a href="#flexbox">Flexbox Issues</a></li>
+                    <li><a href="#grid">CSS Grid Problems</a></li>
+                    <li><a href="#responsive">Responsive Design</a></li>
+                    <li><a href="#position">Positioning Errors</a></li>
+                    <li><a href="#zindex">Z-Index Issues</a></li>
+                    <li><a href="#animation">Animation Problems</a></li>
+                </ul>
+            </div>
+
+            <div class="ad-container sidebar-ad">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-9991916363065932"
+                     data-ad-slot="3456789012"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <h1>CSS Error Fixes</h1>
+            <p class="page-description">Common CSS layout and styling problems with complete solutions</p>
+
+            <section id="flexbox" class="solution-section">
+                <h2><i class="fas fa-boxes"></i> 1. Flexbox Centering Issues</h2>
+                <div class="problem-box">
+                    <h3>Problem: Items not centering properly</h3>
+                    <pre><code>.container {
+    display: flex;
+}
+.center {
+    margin: auto;
+}</code></pre>
+                </div>
+                <div class="solution-box">
+                    <h3>Solution: Use flexbox properties</h3>
+                    <pre><code>.container {
+    display: flex;
+    justify-content: center;  /* horizontal */
+    align-items: center;      /* vertical */
+    height: 100vh;           /* container height */
+}
+
+/* For single item centering */
+.single-item {
+    margin: auto;
+}</code></pre>
+                    <p><strong>Key properties:</strong> justify-content, align-items, align-self</p>
+                </div>
+            </section>
+
+            <div class="ad-container content-ad">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-9991916363065932"
+                     data-ad-slot="4567890123"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+            <section id="responsive" class="solution-section">
+                <h2><i class="fas fa-mobile-alt"></i> 2. Responsive Image Problems</h2>
+                <div class="problem-box">
+                    <h3>Problem: Images breaking layout on mobile</h3>
+                    <pre><code>img {
+    width: 800px;
+    height: 600px;
+}</code></pre>
+                </div>
+                <div class="solution-box">
+                    <h3>Solution: Responsive image techniques</h3>
+                    <pre><code>img {
+    max-width: 100%;     /* Never exceed container */
+    height: auto;        /* Maintain aspect ratio */
+    display: block;      /* Remove extra space below */
+}
+
+/* For background images */
+.hero {
+    background-image: url('image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Using picture element for art direction */
+&lt;picture&gt;
+    &lt;source media="(max-width: 600px)" srcset="small.jpg"&gt;
+    &lt;source media="(min-width: 601px)" srcset="large.jpg"&gt;
+    &lt;img src="default.jpg" alt="Description"&gt;
+&lt;/picture&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="zindex" class="solution-section">
+                <h2><i class="fas fa-layer-group"></i> 3. Z-Index Not Working</h2>
+                <div class="problem-box">
+                    <h3>Problem: Elements not stacking correctly</h3>
+                    <pre><code>.popup {
+    z-index: 9999;
+    position: relative;
+}</code></pre>
+                </div>
+                <div class="solution-box">
+                    <h3>Solution: Understand stacking context</h3>
+                    <pre><code>/* z-index only works on positioned elements */
+.popup {
+    position: fixed;     /* or absolute, relative, sticky */
+    z-index: 100;
+    top: 0;
+    left: 0;
+}
+
+/* Parent with lower z-index */
+.parent {
+    position: relative;
+    z-index: 1;         /* Creates stacking context */
+}
+
+/* Child cannot appear above parent's stacking context */
+.child {
+    position: absolute;
+    z-index: 9999;      /* Still bound by parent's context */
+}</code></pre>
+                    <p><strong>Note:</strong> z-index works only with positioned elements (position ≠ static)</p>
+                </div>
+            </section>
+
+            <div class="navigation-links">
+                <a href="/html-errors.html" class="btn-prev">← Previous: HTML Error Fixes</a>
+                <a href="/js-errors.html" class="btn-next">Next: JavaScript Error Fixes →</a>
+            </div>
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <div class="ad-container footer-ad">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-9991916363065932"
+                 data-ad-slot="5678901234"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <div class="footer-content">
+            <!-- Same footer as index.html -->
+            <div class="footer-section">
+                <h3>CodeFixLab</h3>
+                <p>Your coding companion for error fixes, source code, and projects.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="/terms.html">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 CodeFixLab. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

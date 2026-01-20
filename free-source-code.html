@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Download free HTML, CSS, and JavaScript source code for websites, web apps, and utilities. Perfect for learning and building projects quickly.">
+    <title>Free Source Code - CodeFixLab</title>
+    <link rel="stylesheet" href="style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9991916363065932" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .project-filter {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        body.dark-mode .project-filter {
+            background-color: #2d2d2d;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        body.dark-mode .filter-btn {
+            background-color: #3a3a3a;
+            color: white;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: #4361ee;
+            color: white;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        body.dark-mode .project-card {
+            background-color: #2d2d2d;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .project-image {
+            height: 180px;
+            background-color: #4361ee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin: 10px 0;
+        }
+        
+        .project-tag {
+            background-color: #e9ecef;
+            color: #495057;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+        
+        body.dark-mode .project-tag {
+            background-color: #3a3a3a;
+            color: #b0b0b0;
+        }
+        
+        .project-difficulty {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .difficulty-beginner {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .difficulty-intermediate {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        .difficulty-advanced {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .project-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .download-btn {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .preview-btn {
+            padding: 8px 15px;
+            background-color: #6c757d;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        
+        .preview-btn:hover {
+            background-color: #5a6268;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="https://via.placeholder.com/40/4361ee/ffffff?text=CFL" alt="CodeFixLab Logo" class="logo-img">
+                <h1>Code<span>Fix</span>Lab</h1>
+            </a>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="html-error-fix.html"><i class="fab fa-html5"></i> HTML Errors</a></li>
+                <li><a href="css-error-fix.html"><i class="fab fa-css3-alt"></i> CSS Errors</a></li>
+                <li><a href="javascript-error-fix.html"><i class="fab fa-js-square"></i> JavaScript Errors</a></li>
+                <li><a href="free-source-code.html"><i class="fas fa-code"></i> Source Code</a></li>
+                <li><a href="mini-projects.html"><i class="fas fa-laptop-code"></i> Mini Projects</a></li>
+                <li><a href="ai-code-helper.html"><i class="fas fa-robot"></i> AI Helper</a></li>
+                <li><a href="code-tester.html"><i class="fas fa-vial"></i> Code Tester</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="ad-unit ad-horizontal">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-9991916363065932"
+                data-ad-slot="1234567890"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="error-header">
+            <h1>Free Source Code</h1>
+            <p>Download ready-to-use HTML, CSS, and JavaScript code for your projects. All code is free to use and modify.</p>
+        </div>
+        
+        <div class="ad-unit ad-horizontal">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-9991916363065932"
+                data-ad-slot="2345678901"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+        
+        <div class="project-filter">
+            <h3>Filter by Category</h3>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="html">HTML Templates</button>
+                <button class="filter-btn" data-filter="css">CSS Components</button>
+                <button class="filter-btn" data-filter="javascript">JavaScript</button>
+                <button class="filter-btn" data-filter="website">Complete Websites</button>
+                <button class="filter-btn" data-filter="form">Forms & Validation</button>
+                <button class="filter-btn" data-filter="animation">Animations</button>
+                <button class="filter-btn" data-filter="utility">Utilities</button>
+            </div>
+        </div>
+        
+        <div class="projects-grid" id="projectsGrid">
+            <!-- Project cards will be loaded by JavaScript -->
+        </div>
+        
+        <div class="ad-unit ad-horizontal">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-9991916363065932"
+                data-ad-slot="3456789012"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+        
+        <div class="error-content" style="margin-top: 30px;">
+            <h2>How to Use Our Source Code</h2>
+            <div class="step-by-step-fix">
+                <ol>
+                    <li><strong>Browse projects:</strong> Use filters to find code that matches your needs</li>
+                    <li><strong>Preview code:</strong> Click "Preview Code" to see the code in action</li>
+                    <li><strong>Download:</strong> Click "Download Code" to get all files as a ZIP</li>
+                    <li><strong>Customize:</strong> Modify the code to fit your project requirements</li>
+                    <li><strong>Test:</strong> Use our <a href="code-tester.html">Code Tester</a> to test changes</li>
+                    <li><strong>Learn:</strong> Study the code structure and comments to improve your skills</li>
+                </ol>
+            </div>
+            
+            <h3>License Information</h3>
+            <div class="code-block">
+                <div class="code-header">
+                    <span>MIT License - Free to Use</span>
+                </div>
+<pre><code>All source code on CodeFixLab is provided under the MIT License.
+You are free to:
+
+✓ Use the code for personal or commercial projects
+✓ Modify and adapt the code
+✓ Distribute the code
+✓ Use the code in proprietary software
+
+The only requirement is to include the original copyright notice.
+
+Copyright 2023 CodeFixLab
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</code></pre>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CodeFixLab</h3>
+                    <p>Your go-to resource for fixing coding errors, learning web development, and building projects. We help students and developers succeed.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="html-error-fix.html">HTML Error Fix</a></li>
+                        <li><a href="css-error-fix.html">CSS Error Fix</a></li>
+                        <li><a href="javascript-error-fix.html">JavaScript Error Fix</a></li>
+                        <li><a href="free-source-code.html">Free Source Code</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="mini-projects.html">Mini Projects</a></li>
+                        <li><a href="ai-code-helper.html">AI Code Helper</a></li>
+                        <li><a href="code-tester.html">Code Tester</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 CodeFixLab. All rights reserved. Designed for educational purposes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Sample project data
+        const projects = [
+            {
+                id: 1,
+                title: "Responsive Navigation Bar",
+                description: "A modern responsive navigation bar with dropdown menus and mobile hamburger menu.",
+                tags: ["HTML", "CSS", "JavaScript", "Responsive"],
+                difficulty: "beginner",
+                category: "css",
+                icon: "fas fa-bars"
+            },
+            {
+                id: 2,
+                title: "Contact Form with Validation",
+                description: "A complete contact form with client-side validation and error messages.",
+                tags: ["HTML", "CSS", "JavaScript", "Form", "Validation"],
+                difficulty: "beginner",
+                category: "form",
+                icon: "fas fa-envelope"
+            },
+            {
+                id: 3,
+                title: "E-commerce Product Card",
+                description: "An attractive product card design for e-commerce websites with hover effects.",
+                tags: ["HTML", "CSS", "UI", "E-commerce"],
+                difficulty: "beginner",
+                category: "css",
+                icon: "fas fa-shopping-cart"
+            },
+            {
+                id: 4,
+                title: "Todo List Application",
+                description: "A fully functional todo list with add, edit, delete, and local storage features.",
+                tags: ["JavaScript", "LocalStorage", "CRUD", "UI"],
+                difficulty: "intermediate",
+                category: "javascript",
+                icon: "fas fa-tasks"
+            },
+            {
+                id: 5,
+                title: "Weather App Dashboard",
+                description: "Weather application that fetches data from API and displays in a beautiful dashboard.",
+                tags: ["JavaScript", "API", "CSS", "Async"],
+                difficulty: "intermediate",
+                category: "javascript",
+                icon: "fas fa-cloud-sun"
+            },
+            {
+                id: 6,
+                title: "Portfolio Website Template",
+                description: "Complete portfolio website template with responsive design and smooth animations.",
+                tags: ["HTML", "CSS", "JavaScript", "Portfolio", "Responsive"],
+                difficulty: "intermediate",
+                category: "website",
+                icon: "fas fa-user"
+            },
+            {
+                id: 7,
+                title: "Image Gallery with Lightbox",
+                description: "Responsive image gallery with lightbox effect for viewing images in full screen.",
+                tags: ["CSS", "JavaScript", "Gallery", "Lightbox"],
+                difficulty: "intermediate",
+                category: "css",
+                icon: "fas fa-images"
+            },
+            {
+                id: 8,
+                title: "Countdown Timer",
+                description: "Customizable countdown timer with multiple themes and pause/resume functionality.",
+                tags: ["JavaScript", "CSS", "Timer", "UI"],
+                difficulty: "beginner",
+                category: "javascript",
+                icon: "fas fa-clock"
+            },
+            {
+                id: 9,
+                title: "Login & Registration System",
+                description: "Complete login and registration system with form validation and user feedback.",
+                tags: ["HTML", "CSS", "JavaScript", "Form", "Security"],
+                difficulty: "intermediate",
+                category: "form",
+                icon: "fas fa-sign-in-alt"
+            },
+            {
+                id: 10,
+                title: "CSS Loading Animations",
+                description: "Collection of 10 different CSS loading animations and spinners for web projects.",
+                tags: ["CSS", "Animation", "Loader", "UI"],
+                difficulty: "beginner",
+                category: "animation",
+                icon: "fas fa-spinner"
+            },
+            {
+                id: 11,
+                title: "Currency Converter",
+                description: "Real-time currency converter using exchange rate API with clean interface.",
+                tags: ["JavaScript", "API", "Converter", "Finance"],
+                difficulty: "intermediate",
+                category: "javascript",
+                icon: "fas fa-money-bill-wave"
+            },
+            {
+                id: 12,
+                title: "Blog Website Template",
+                description: "Complete blog website template with responsive design and article layout.",
+                tags: ["HTML", "CSS", "Blog", "Responsive", "Template"],
+                difficulty: "beginner",
+                category: "website",
+                icon: "fas fa-blog"
+            }
+        ];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectsGrid = document.getElementById('projectsGrid');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            let activeFilter = 'all';
+
+            // Render projects
+            function renderProjects(filter = 'all') {
+                projectsGrid.innerHTML = '';
+                
+                const filteredProjects = filter === 'all' 
+                    ? projects 
+                    : projects.filter(project => project.category === filter);
+                
+                filteredProjects.forEach(project => {
+                    const projectCard = document.createElement('div');
+                    projectCard.className = 'project-card';
+                    projectCard.innerHTML = `
+                        <div class="project-image" style="background-color: ${getColorByCategory(project.category)};">
+                            <i class="${project.icon}"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>${project.title}</h3>
+                            <span class="project-difficulty difficulty-${project.difficulty}">
+                                ${project.difficulty.charAt(0).toUpperCase() + project.difficulty.slice(1)}
+                            </span>
+                            <p>${project.description}</p>
+                            <div class="project-tags">
+                                ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
+                            </div>
+                            <div class="project-actions">
+                                <a href="#" class="btn download-btn" data-id="${project.id}">
+                                    <i class="fas fa-download"></i> Download Code
+                                </a>
+                                <a href="#" class="preview-btn" data-id="${project.id}">
+                                    <i class="fas fa-eye"></i> Preview
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                    
+                    projectsGrid.appendChild(projectCard);
+                });
+                
+                // Add event listeners to download buttons
+                document.querySelectorAll('.download-btn').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const projectId = this.getAttribute('data-id');
+                        downloadProject(projectId);
+                    });
+                });
+                
+                // Add event listeners to preview buttons
+                document.querySelectorAll('.preview-btn').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const projectId = this.getAttribute('data-id');
+                        previewProject(projectId);
+                    });
+                });
+            }
+            
+            // Get color by category
+            function getColorByCategory(category) {
+                const colors = {
+                    'html': '#e34c26',
+                    'css': '#264de4',
+                    'javascript': '#f0db4f',
+                    'website': '#4361ee',
+                    'form': '#7209b7',
+                    'animation': '#f72585',
+                    'utility': '#4cc9f0'
+                };
+                return colors[category] || '#4361ee';
+            }
+            
+            // Download project function
+            function downloadProject(projectId) {
+                const project = projects.find(p => p.id == projectId);
+                if (project) {
+                    alert(`Downloading "${project.title}"...\n\nIn a real website, this would download a ZIP file containing:\n- index.html\n- style.css\n- script.js\n- README.md\n\nAll code is free to use under MIT License.`);
+                    // In a real implementation, this would trigger a file download
+                }
+            }
+            
+            // Preview project function
+            function previewProject(projectId) {
+                const project = projects.find(p => p.id == projectId);
+                if (project) {
+                    // Redirect to code tester with pre-loaded code
+                    localStorage.setItem('previewProject', JSON.stringify(project));
+                    window.location.href = 'code-tester.html?preview=' + projectId;
+                }
+            }
+            
+            // Filter buttons event listeners
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter projects
+                    activeFilter = this.getAttribute('data-filter');
+                    renderProjects(activeFilter);
+                });
+            });
+            
+            // Initial render
+            renderProjects();
+            
+            // Initialize AdSense
+            if (window.adsbygoogle) {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            }
+        });
+    </script>
+</body>
+</html>

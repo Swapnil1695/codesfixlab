@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about CodeFixLab - our mission to help students and developers fix coding errors and build better projects.">
+    <title>About Us - CodeFixLab</title>
+    <link rel="stylesheet" href="style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9991916363065932" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .about-hero {
+            background: linear-gradient(135deg, #4361ee, #3a0ca3);
+            color: white;
+            padding: 60px 0;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .about-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .about-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .mission-card, .vision-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        body.dark-mode .mission-card,
+        body.dark-mode .vision-card {
+            background-color: #2d2d2d;
+        }
+        
+        .mission-card i, .vision-card i {
+            font-size: 3rem;
+            color: #4361ee;
+            margin-bottom: 20px;
+        }
+        
+        .team-section {
+            margin: 50px 0;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .team-member {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            padding-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        body.dark-mode .team-member {
+            background-color: #2d2d2d;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .member-image {
+            height: 150px;
+            background-color: #4361ee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+        
+        .member-info {
+            padding: 20px;
+        }
+        
+        .member-info h3 {
+            margin-bottom: 5px;
+            color: #4361ee;
+        }
+        
+        body.dark-mode .member-info h3 {
+            color: #4cc9f0;
+        }
+        
+        .member-role {
+            color: #6c757d;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .member-bio {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #495057;
+        }
+        
+        body.dark-mode .member-bio {
+            color: #b0b0b0;
+        }
+        
+        .stats-section {
+            background-color: #f8f9fa;
+            padding: 50px 0;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+        
+        body.dark-mode .stats-section {
+            background-color: #2d2d2d;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #4361ee;
+            margin-bottom: 10px;
+        }
+        
+        body.dark-mode .stat-number {
+            color: #4cc9f0;
+        }
+        
+        .stat-label {
+            color: #6c757d;
+            font-size: 1.1rem;
+        }
+        
+        .values-section {
+            margin: 50px 0;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .value-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        body.dark-mode .value-card {
+            background-color: #2d2d2d;
+        }
+        
+        .value-card i {
+            font-size: 2.5rem;
+            color: #7209b7;
+            margin-bottom: 20px;
+        }
+        
+        .value-card h3 {
+            margin-bottom: 15px;
+            color: #4361ee;
+        }
+        
+        body.dark-mode .value-card h3 {
+            color: #4cc9f0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="https://via.placeholder.com/40/4361ee/ffffff?text=CFL" alt="CodeFixLab Logo" class="logo-img">
+                <h1>Code<span>Fix</span>Lab</h1>
+            </a>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="html-error-fix.html"><i class="fab fa-html5"></i> HTML Errors</a></li>
+                <li><a href="css-error-fix.html"><i class="fab fa-css3-alt"></i> CSS Errors</a></li>
+                <li><a href="javascript-error-fix.html"><i class="fab fa-js-square"></i> JavaScript Errors</a></li>
+                <li><a href="free-source-code.html"><i class="fas fa-code"></i> Source Code</a></li>
+                <li><a href="mini-projects.html"><i class="fas fa-laptop-code"></i> Mini Projects</a></li>
+                <li><a href="ai-code-helper.html"><i class="fas fa-robot"></i> AI Helper</a></li>
+                <li><a href="code-tester.html"><i class="fas fa-vial"></i> Code Tester</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="ad-unit ad-horizontal">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-9991916363065932"
+                data-ad-slot="1234567890"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="about-hero">
+            <h1>About CodeFixLab</h1>
+            <p>We're on a mission to make coding accessible to everyone. Whether you're a student just starting out or a developer facing a tricky bug, we're here to help.</p>
+        </div>
+        
+        <div class="ad-unit ad-horizontal">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-9991916363065932"
+                data-ad-slot="2345678901"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+        
+        <div class="error-content">
+            <h2>Our Story</h2>
+            <p>CodeFixLab was founded in 2023 by a group of developers who were frustrated by how difficult it was to find clear, simple explanations for coding errors. We noticed that many students and beginner developers were spending hours searching for solutions to common problems, often getting lost in complex technical documentation or outdated forum posts.</p>
+            
+            <p>We set out to create a resource that would provide immediate, practical help for the most common coding errors. Our goal was to explain complex concepts in simple language, provide working code examples, and create tools that would make learning to code easier and more enjoyable.</p>
+            
+            <p>Today, CodeFixLab helps thousands of students and developers every month fix their coding errors, learn new skills, and build amazing projects. We're proud to be part of the coding community and committed to making web development education accessible to everyone.</p>
+        </div>
+        
+        <div class="mission-vision">
+            <div class="mission-card">
+                <i class="fas fa-bullseye"></i>
+                <h2>Our Mission</h2>
+                <p>To democratize coding education by providing free, accessible, and practical resources that help students and developers overcome coding challenges and build successful careers in technology.</p>
+            </div>
+            
+            <div class="vision-card">
+                <i class="fas fa-eye"></i>
+                <h2>Our Vision</h2>
+                <p>A world where anyone, regardless of background or resources, can learn to code, solve problems with technology, and participate in building our digital future.</p>
+            </div>
+        </div>
+        
+        <div class="ad-unit ad-horizontal">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-9991916363065932"
+                data-ad-slot="3456789012"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+        
+        <div class="values-section">
+            <h2>Our Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Education First</h3>
+                    <p>We believe in making learning accessible, practical, and enjoyable for everyone.</p>
+                </div>
+                
+                <div class="value-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Community Focused</h3>
+                    <p>We build tools and resources that serve the needs of students and developers.</p>
+                </div>
+                
+                <div class="value-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Quality Code</h3>
+                    <p>Every example and solution we provide is tested, documented, and production-ready.</p>
+                </div>
+                
+                <div class="value-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Passion for Helping</h3>
+                    <p>We genuinely care about helping people overcome their coding challenges.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="stats-section">
+            <h2 style="text-align: center; margin-bottom: 30px;">Our Impact</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">10,000+</div>
+                    <div class="stat-label">Students Helped</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Code Examples</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Mini Projects</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">AI Assistant Available</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="team-section">
+            <h2>Meet Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <h3>Rajesh Kumar</h3>
+                        <div class="member-role">Founder & Lead Developer</div>
+                        <p class="member-bio">Former software engineer with 10+ years of experience. Passionate about teaching coding to beginners.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <h3>Priya Sharma</h3>
+                        <div class="member-role">Content Lead & Educator</div>
+                        <p class="member-bio">Computer science teacher turned content creator. Specializes in simplifying complex concepts.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <h3>Amit Patel</h3>
+                        <div class="member-role">UI/UX Designer</div>
+                        <p class="member-bio">Creates beautiful, intuitive interfaces that make learning to code a great experience.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <h3>Neha Singh</h3>
+                        <div class="member-role">Community Manager</div>
+                        <p class="member-bio">Connects with students, gathers feedback, and ensures our resources meet community needs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="error-content" style="margin-top: 50px; text-align: center;">
+            <h2>Join Our Mission</h2>
+            <p>Whether you're learning to code, teaching others, or building projects, we're here to support you every step of the way.</p>
+            <div style="margin-top: 30px;">
+                <a href="contact.html" class="btn" style="margin-right: 15px;">
+                    <i class="fas fa-envelope"></i> Contact Us
+                </a>
+                <a href="ai-code-helper.html" class="btn btn-secondary">
+                    <i class="fas fa-robot"></i> Try AI Helper
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CodeFixLab</h3>
+                    <p>Your go-to resource for fixing coding errors, learning web development, and building projects. We help students and developers succeed.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="html-error-fix.html">HTML Error Fix</a></li>
+                        <li><a href="css-error-fix.html">CSS Error Fix</a></li>
+                        <li><a href="javascript-error-fix.html">JavaScript Error Fix</a></li>
+                        <li><a href="free-source-code.html">Free Source Code</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="mini-projects.html">Mini Projects</a></li>
+                        <li><a href="ai-code-helper.html">AI Code Helper</a></li>
+                        <li><a href="code-tester.html">Code Tester</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 CodeFixLab. All rights reserved. Designed for educational purposes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
